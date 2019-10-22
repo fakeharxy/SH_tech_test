@@ -13,10 +13,13 @@ class PostcodeChecker
   end
 
   def whitelisted?
+    # a postcode listed on the custom_whitelist will return as whitelisted
+    # even if it is not a valid postcode.
+    return true if @custom_whitelist.include? @postcode
+
     raise InvalidPostcodeError, 'Postcode was invalid' unless valid?
 
     return true if WHITELISTED_LSOAS.include? response_lsoa
-    return true if @custom_whitelist.include? @postcode
 
     false
   end

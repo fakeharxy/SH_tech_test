@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Postcode Checker</title>
+</head>
+<body>
+<h1> Whitelist </h1>
+<ul>
+  <% @custom_whitelist.each do |item| %>
+    <li> <%= item.postcode %> <a href="delete/<%= item.id %>"> remove </a></li>
+  <% end %>
+</ul>
+
+<form method="POST" action="/add_to_whitelist">
+  <input type="text" name="whitelist_postcode" id="whitelist_postcode">
+  <input value="Add to Whitelist" type="submit">
+</form>
+    
+</body>
+</html>

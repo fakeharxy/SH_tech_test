@@ -1,7 +1,7 @@
 require File.expand_path '../acceptance_helper.rb', __dir__
 WebMock.allow_net_connect!
 
-feature 'Postcode search ' do
+feature 'Postcode search' do
   scenario 'with valid postcode' do
     visit '/'
     fill_in 'postcode', with: 'SW9 0LR'
@@ -24,5 +24,32 @@ feature 'Postcode search ' do
     click_button 'Check Postcode'
 
     expect(page).to have_content('Error')
+  end
+end
+
+feature 'The Whitelist' do
+  scenario 'add postcode' do
+    visit '/custom_whitelist'
+    fill_in 'whitelist_postcode', with: 'CUSTOM'
+    click_button 'Add to Whitelist'
+
+    expect(page).to have_content('custom')
+  end
+
+  scenario 'add postcode' do
+    visit '/custom_whitelist'
+    fill_in 'whitelist_postcode', with: 'CUSTOM'
+    click_button 'Add to Whitelist'
+    click_link 'remove'
+
+    expect(page).to_not have_content('custom')
+  end
+
+  scenario 'duplicate can not be added' do
+    visit '/custom_whitelist'
+    fill_in 'whitelist_postcode', with: 'TEST'
+    click_button 'Add to Whitelist'
+
+    expect(page).to_not have_content('test').twice
   end
 end

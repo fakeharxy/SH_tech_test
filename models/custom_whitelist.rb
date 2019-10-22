@@ -11,6 +11,6 @@ class CustomWhitelist
   protected
 
   def format_postcode
-    postcode.gsub!(/\s+/, '').downcase!
+    postcode.replace(postcode.gsub(/\s+/, '')).downcase!
   end
 end
