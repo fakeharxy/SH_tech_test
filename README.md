@@ -4,7 +4,7 @@ Technical Test using Ruby, Sinatra, RSpec, Capybara, HTTParty, Webmock, VCR, Mon
 
 ## Running the tests
 
-I've set up a Rakefile so you should just be able to clone, bundle and rake.
+I've set up a Rakefile so you should just be able to clone, ```bundle``` and ```rake```.
 
 ## Further improvements
 
