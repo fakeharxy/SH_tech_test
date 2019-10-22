@@ -38,11 +38,11 @@ feature 'The Whitelist' do
 
   scenario 'add postcode' do
     visit '/custom_whitelist'
-    fill_in 'whitelist_postcode', with: 'CUSTOM'
+    fill_in 'whitelist_postcode', with: 'RANDOM'
     click_button 'Add to Whitelist'
     click_link 'remove'
 
-    expect(page).to_not have_content('custom')
+    expect(page).to_not have_content('random')
   end
 
   scenario 'duplicate can not be added' do
