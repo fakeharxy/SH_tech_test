@@ -85,6 +85,7 @@ GEM
     tilt (2.0.10)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    vcr (5.0.0)
     webmock (3.7.6)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
@@ -104,6 +105,7 @@ DEPENDENCIES
   pry-byebug!
   rspec!
   sinatra!
+  vcr!
   webmock!
 
 BUNDLED WITH

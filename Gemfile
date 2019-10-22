@@ -7,6 +7,7 @@ source 'https://rubygems.org' do
     gem 'database_cleaner'
     gem 'pry-byebug'
     gem 'rspec'
+    gem 'vcr'
     gem 'webmock'
   end
 end

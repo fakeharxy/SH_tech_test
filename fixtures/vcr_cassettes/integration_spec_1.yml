@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.postcodes.io/postcodes/sw90lr
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.14.0
+      Date:
+      - Tue, 22 Oct 2019 15:32:06 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '731'
+      Connection:
+      - keep-alive
+      X-Gnu:
+      - Michael J Blanchard
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - W/"2db-tpYowLXnsBidD/E4/uYMCi0CRaQ"
+    body:
+      encoding: UTF-8
+      string: '{"status":200,"result":{"postcode":"SW9 0LR","quality":1,"eastings":531179,"northings":177386,"country":"England","nhs_ha":"London","longitude":-0.112347,"latitude":51.480228,"european_electoral_region":"London","primary_care_trust":"Lambeth","region":"London","lsoa":"Lambeth
+        005C","msoa":"Lambeth 005","incode":"0LR","outcode":"SW9","parliamentary_constituency":"Vauxhall","admin_district":"Lambeth","parish":"Lambeth,
+        unparished area","admin_county":null,"admin_ward":"Oval","ced":null,"ccg":"NHS
+        Lambeth","nuts":"Lambeth","codes":{"admin_district":"E09000022","admin_county":"E99999999","admin_ward":"E05000426","parish":"E43000212","parliamentary_constituency":"E14001008","ccg":"E38000092","ced":"E99999999","nuts":"UKI45"}}}'
+    http_version: 
+  recorded_at: Tue, 22 Oct 2019 15:32:06 GMT
+recorded_with: VCR 5.0.0

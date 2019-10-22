@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.postcodes.io/postcodes/hp144xw
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.14.0
+      Date:
+      - Tue, 22 Oct 2019 15:35:53 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '802'
+      Connection:
+      - keep-alive
+      X-Gnu:
+      - Michael J Blanchard
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - W/"322-TmUgGNSCYh72AWFtcW/aWBFLerg"
+    body:
+      encoding: UTF-8
+      string: '{"status":200,"result":{"postcode":"HP14 4XW","quality":1,"eastings":483232,"northings":197898,"country":"England","nhs_ha":"South
+        Central","longitude":-0.797744,"latitude":51.673696,"european_electoral_region":"South
+        East","primary_care_trust":"Buckinghamshire","region":"South East","lsoa":"Wycombe
+        007A","msoa":"Wycombe 007","incode":"4XW","outcode":"HP14","parliamentary_constituency":"Aylesbury","admin_district":"Wycombe","parish":"Bradenham","admin_county":"Buckinghamshire","admin_ward":"Bledlow
+        and Bradenham","ced":"Ridgeway West","ccg":"NHS Buckinghamshire","nuts":"Buckinghamshire
+        CC","codes":{"admin_district":"E07000007","admin_county":"E10000002","admin_ward":"E05002675","parish":"E04001593","parliamentary_constituency":"E14000538","ccg":"E38000223","ced":"E58000037","nuts":"UKJ13"}}}'
+    http_version: 
+  recorded_at: Tue, 22 Oct 2019 15:35:53 GMT
+recorded_with: VCR 5.0.0
