@@ -1,9 +1,19 @@
-
 class PostcodeChecker
   API_URL = 'api.postcodes.io/postcodes'.freeze
+  WHITELISTED_LSOAS = %w[Southwark Lambeth].freeze
 
   def initialize(postcode, postcode_fetcher)
     @postcode = postcode
-    @postcode_fetcher = postcode_fetcher.new(postcode, API_URL)
+    @response = postcode_fetcher.fetch(postcode, API_URL)
+  end
+
+  def whitelisted?
+    WHITELISTED_LSOAS.include? response_lsoa
+  end
+
+  private
+
+  def response_lsoa
+    @response[:result][:lsoa].split(' ')[0]
   end
 end

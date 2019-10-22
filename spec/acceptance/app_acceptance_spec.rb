@@ -6,6 +6,14 @@ feature 'Postcode search ' do
     fill_in 'postcode', with: 'SW9 0LR'
     click_button 'Check'
 
-    expect(page).to have_content('whitelisted')
+    expect(page).to have_content('true')
+  end
+
+  scenario 'with invalid postcode' do
+    visit '/'
+    fill_in 'postcode', with: 'SW9 0LR'
+    click_button 'Check'
+
+    expect(page).to have_content('false')
   end
 end
