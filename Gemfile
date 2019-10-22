@@ -6,6 +6,7 @@ source 'https://rubygems.org' do
     gem 'capybara'
     gem 'database_cleaner'
     gem 'pry-byebug'
+    gem 'rake'
     gem 'rspec'
     gem 'vcr'
     gem 'webmock'

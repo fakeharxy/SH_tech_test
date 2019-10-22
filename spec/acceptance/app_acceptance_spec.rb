@@ -28,7 +28,7 @@ feature 'Postcode search' do
 end
 
 feature 'The Whitelist' do
-  scenario 'add postcode' do
+  scenario 'add postcode to whitelist' do
     visit '/custom_whitelist'
     fill_in 'whitelist_postcode', with: 'CUSTOM'
     click_button 'Add to Whitelist'
@@ -36,7 +36,7 @@ feature 'The Whitelist' do
     expect(page).to have_content('custom')
   end
 
-  scenario 'add postcode' do
+  scenario 'remove postcode from whitelist' do
     visit '/custom_whitelist'
     fill_in 'whitelist_postcode', with: 'RANDOM'
     click_button 'Add to Whitelist'
