@@ -2,6 +2,9 @@ ENV['RACK_ENV'] = 'test'
 
 require 'rack/test'
 require 'capybara/rspec'
+require 'mongoid'
+Mongoid.load! 'mongoid.config'
+
 
 RSpec.configure do |config|
   config.include Capybara

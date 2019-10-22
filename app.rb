@@ -1,7 +1,11 @@
 require 'sinatra'
-require_relative './helpers/check_postcode'
+require 'mongoid'
+require_relative './helpers/postcode_helper'
+require_relative './models/custom_whitelist'
 
-helpers Sinatra::CheckPostcode
+Mongoid.load! 'mongoid.config'
+
+helpers Sinatra::PostcodeHelper
 
 get '/' do
   erb :index
@@ -14,3 +18,5 @@ post '/check' do
     erb :error
   end
 end
+
+

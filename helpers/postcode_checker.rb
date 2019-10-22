@@ -2,9 +2,10 @@ class PostcodeChecker
   API_URL = 'https://api.postcodes.io/postcodes'.freeze
   WHITELISTED_LSOAS = %w[Southwark Lambeth].freeze
 
-  def initialize(postcode, postcode_fetcher)
+  def initialize(postcode, postcode_fetcher, custom_whitelist)
     @postcode = format_postcode(postcode)
     @response = postcode_fetcher.fetch(@postcode, API_URL)
+    @custom_whitelist = custom_whitelist
   end
 
   def valid?
@@ -12,11 +13,12 @@ class PostcodeChecker
   end
 
   def whitelisted?
-    if valid?
-      WHITELISTED_LSOAS.include? response_lsoa
-    else
-      raise InvalidPostcodeError.new('Postcode was invalid')
-    end
+    raise InvalidPostcodeError, 'Postcode was invalid' unless valid?
+
+    return true if WHITELISTED_LSOAS.include? response_lsoa
+    return true if @custom_whitelist.include? @postcode
+
+    false
   end
 
   private
