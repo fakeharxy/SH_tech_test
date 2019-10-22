@@ -29,7 +29,7 @@ post '/add_to_whitelist' do
   redirect '/custom_whitelist'
 end
 
-get '/delete/:id' do
+get '/delete_from_whitelist/:id' do
   CustomWhitelist.where(id: params['id']).delete
   redirect '/custom_whitelist'
 end

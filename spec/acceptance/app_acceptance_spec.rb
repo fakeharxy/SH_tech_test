@@ -30,10 +30,10 @@ end
 feature 'The Whitelist' do
   scenario 'add postcode to whitelist' do
     visit '/custom_whitelist'
-    fill_in 'whitelist_postcode', with: 'CUSTOM'
+    fill_in 'whitelist_postcode', with: 'RANDOM'
     click_button 'Add to Whitelist'
 
-    expect(page).to have_content('custom')
+    expect(page).to have_content('random')
   end
 
   scenario 'remove postcode from whitelist' do

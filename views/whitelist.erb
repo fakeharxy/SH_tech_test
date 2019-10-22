@@ -7,7 +7,7 @@
 <h1> Whitelist </h1>
 <ul>
   <% @custom_whitelist.each do |item| %>
-    <li> <%= item.postcode %> <a href="delete/<%= item.id %>"> remove </a></li>
+    <li> <%= item.postcode %> <a href="delete_from_whitelist/<%= item.id %>"> remove </a></li>
   <% end %>
 </ul>
 
@@ -20,6 +20,8 @@
          id="whitelist_postcode">
   <input value="Add to Whitelist" type="submit">
 </form>
+<br />
+<a href='/'>Head back to the Postcode Checker </a>
     
 </body>
 </html>
