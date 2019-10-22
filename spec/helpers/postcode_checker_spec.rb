@@ -18,6 +18,16 @@ RSpec.describe PostcodeChecker do
     checker = PostcodeChecker.new('SW90LR', fetcher)
     expect(checker.whitelisted?).to be(false)
   end
+
+  it 'returns an error if the postcode is not recognised' do
+    fetcher = double('fetcher',
+                     fetch: {
+                       'status' => 404,
+                       'error' => 'Invalid postcode'
+                     })
+    checker = PostcodeChecker.new('hhh3333', fetcher)
+    expect(checker.valid?).to be(false)
+  end
 end
 
 def double_maker(location)

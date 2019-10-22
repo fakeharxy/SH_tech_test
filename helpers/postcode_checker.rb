@@ -7,19 +7,33 @@ class PostcodeChecker
     @response = postcode_fetcher.fetch(@postcode, API_URL)
   end
 
+  def valid?
+    @response['status'] != 404
+  end
+
   def whitelisted?
-    WHITELISTED_LSOAS.include? response_lsoa
+    if valid?
+      WHITELISTED_LSOAS.include? response_lsoa
+    else
+      raise InvalidPostcodeError.new('Postcode was invalid')
+    end
   end
 
   private
 
   def response_lsoa
-    @response["result"]["lsoa"].split(' ')[0]
+    @response['result']['lsoa'].split(' ')[0]
   end
 
   def format_postcode(postcode)
     postcode
       .gsub(/\s+/, '')
       .downcase
+  end
+end
+
+class InvalidPostcodeError < StandardError
+  def initialize(message)
+    super(message)
   end
 end

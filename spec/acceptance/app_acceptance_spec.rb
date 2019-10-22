@@ -17,4 +17,12 @@ feature 'Postcode search ' do
 
     expect(page).to have_content('Rejected')
   end
+
+  scenario 'postcode' do
+    visit '/'
+    fill_in 'postcode', with: 'HHH222333'
+    click_button 'Check Postcode'
+
+    expect(page).to have_content('Error')
+  end
 end

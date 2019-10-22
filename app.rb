@@ -8,5 +8,9 @@ get '/' do
 end
 
 post '/check' do
-  whitelist_check(params['postcode']) ? (erb :accepted) : (erb :rejected)
+  begin
+    whitelist_check(params['postcode']) ? (erb :accepted) : (erb :rejected)
+  rescue InvalidPostcodeError
+    erb :error
+  end
 end
