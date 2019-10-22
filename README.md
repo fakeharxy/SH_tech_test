@@ -6,6 +6,10 @@ Technical Test using Ruby, Sinatra, RSpec, Capybara, HTTParty, Webmock, VCR, Mon
 
 I've set up a Rakefile so you should just be able to clone, ```bundle``` and ```rake```.
 
+## Running the server
+
+After bundling, you should just be able to ```ruby app.rb```.
+
 ## Further improvements
 
 The model for the Mongo database isn't tested, I simply ran out of time.
