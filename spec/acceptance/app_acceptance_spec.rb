@@ -1,19 +1,20 @@
 require File.expand_path '../acceptance_helper.rb', __dir__
+WebMock.allow_net_connect!
 
 feature 'Postcode search ' do
   scenario 'with valid postcode' do
     visit '/'
     fill_in 'postcode', with: 'SW9 0LR'
-    click_button 'Check'
+    click_button 'Check Postcode'
 
-    expect(page).to have_content('true')
+    expect(page).to have_content('Accepted')
   end
 
   scenario 'with invalid postcode' do
     visit '/'
-    fill_in 'postcode', with: 'SW9 0LR'
-    click_button 'Check'
+    fill_in 'postcode', with: 'HP14 4XW'
+    click_button 'Check Postcode'
 
-    expect(page).to have_content('false')
+    expect(page).to have_content('Rejected')
   end
 end

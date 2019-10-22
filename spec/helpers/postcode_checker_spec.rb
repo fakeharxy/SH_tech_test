@@ -23,7 +23,7 @@ end
 def double_maker(location)
   double('fetcher',
          fetch: {
-           'result':
-           { 'lsoa': "#{location} 005C" }
+           'result' =>
+           { 'lsoa' => "#{location} 005C" }
          })
 end

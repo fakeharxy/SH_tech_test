@@ -7,7 +7,6 @@ get '/' do
   erb :index
 end
 
-post '/check/:postcode' do
-  CheckPostcode::run(params['postcode'])
-  erb :resultS
+post '/check' do
+  whitelist_check(params['postcode']) ? (erb :accepted) : (erb :rejected)
 end
